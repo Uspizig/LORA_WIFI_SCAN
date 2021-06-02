@@ -1,0 +1,5 @@
+#define mySSID "xxxxx"
+#define myPASSWORD "xxxxsddff"
+#define thingspeak_server "api.thingspeak.com"
+#define thingspeak_api_key "ABCDEFHJVH"
+#define TELEGRAM_BOT_TOKEN "12343455:kfshkfljfdlnblfdnbvolRsDHxGc"
