@@ -1,11 +1,15 @@
 # LORA_WIFI_SCAN
-SCANS WIFI NETWORK with an ESP32 and sends MAC of strongest WIFI via LORA to The Things Network TTN V3 Stack Community Edition.
+SCANS the Surounding WIFI NETWORKs with an ESP32 and sends MAC of strongest WIFI AccessPoints MAC via LORA to The Things Network TTN V3 Stack Community Edition.
 On the backend a Google script is waiting to estimate the position of the node via the recieved MAC Adress. With this method you can do indoor location estimation
+This is done with Integrations: Web Hooks
 
 WARNINGS
 
-Before you compile please ensure you modify all your credentials and used sensors in "credentials.h" which have been marked REPLACEMEUSER
-USE a Proper POWER SOURCE.
+Before you compile please ensure you modify all your credentials and used sensors 
+in "credentials.h". which have been marked REPLACEMEUSER
+in "lorapindef_and_features.h" which have been marked with "0x00, 0x00". -> get you keys like from TTN 
+Limit you update interval accoding your local Duty Cycle limitations https://avbentem.github.io/airtime-calculator/ttn/eu868
+
 This Source Code is provided "AS it is" . If you use this code you agree that any harm, damage, burn or injuries are YOUR RESPONSIBILITY! The Author may not be held liable for any damage that might happen if you try this code out.
 Legal validity of this disclaimer This disclaimer is to be regarded as part of the internet publication which you were referred from. If sections or individual terms of this statement are not legal or correct, the content or validity of the other parts remain uninfluenced by this fact.
 
@@ -13,17 +17,18 @@ Referrals and links The author is not responsible for any contents linked or ref
 
 Installation
 1. Install Arduino IDE + ESP32 extension
-2. Install MCCI LMIC as a Lib
+2. Install MCCI LMIC as a Lib. Edit your Project Config
 3. Install a Google Script on Google Drive: For Installation of the Google script use the follwing information:
 - https://github.com/Uspizig/Ttn-gooogle-script
 - https://developers.google.com/maps/documentation/geolocation/get-api-key -> you will need a key and take care about billing. Hint: without credit card verification this won't work
 - https://developers.google.com/maps/documentation/geolocation/overview - fill in your API-Key to the google scrpt file
-- Consider Payment is needed if you make tooo many requests.
+- Consider Payment to Google is needed if you make tooo many requests a month.
 
 For usage with Arduino ESP32 V2.0 consider this link: .. otherwise it won't compile: https://github.com/mcci-catena/arduino-lmic/issues/714
  
  
 Keep in Mind: This is only for DEMO. NEVER EVER use this in Production environment.
+This is neither save, proper tested nor ok with privacy rules or DSGVO or GDPR. This is just a prove of concept.
 
 
 Also ensure you have installed the following libs: You might not need them for this sketch and you can comment out a lot.
@@ -50,6 +55,8 @@ Andreas Spiess
 OTA Sketch for OTA Update of the ESP32 over WiFi
 https://github.com/SensorsIot/ESP32-OTA
 
+Credits to Edzelf for the idea on ESP8266 with OTAA then ABP
+https://github.com/Edzelf/LoRa/tree/master/ESP_lora_tracker
 
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License. This means if you use or feature this work in any website, publication, presentation etc, you must clearly attribute/ credit the work to uspizig (but not in any way that suggests that uspizig endorses you or your use of the work). You may not use this work for commercial purposes without explicit permission. 
